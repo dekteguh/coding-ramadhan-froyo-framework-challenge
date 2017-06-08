@@ -16,7 +16,7 @@ let personData = [
         name: 'Dona',
         age: '33',
         origin: 'DI Aceh'
-    }
+    },
     {
         name: 'Made',
         age: '36',
@@ -29,11 +29,12 @@ let personData = [
     }
 ];
 
+let ageAverage = (data) => {
+    let sum = data.reduce((a, b) => (a + parseInt(b.age)), 0);
+    return sum / data.length;
+};
+
 app.get('/', function(req, res) {
-    let ageAverage = (data) => {
-        let sum = data.reduce((a, b) => (a.age + b.age));
-        return sum / data.length;
-    };
 
     res.json({ data: personData });
 });
